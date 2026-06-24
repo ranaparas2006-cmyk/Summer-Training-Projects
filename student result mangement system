@@ -1,0 +1,34 @@
+students = []
+
+n = int(input("Enter number of students: "))
+
+for i in range(n):
+    name = input("\nEnter name: ")
+    marks = int(input("Enter marks: "))
+
+    # grade
+    if marks >= 80:
+        grade = "A"
+    elif marks >= 60:
+        grade = "B"
+    elif marks >= 40:
+        grade = "C"
+    else:
+        grade = "Fail"
+    student = (name, marks, grade)
+    students.append(student)
+for s in students:
+    print("Name:", s[0], "Marks:", s[1], "Grade:", s[2])
+topper = students[0]
+
+for s in students:
+    if s[1] > topper[1]:
+        topper = s
+
+print("\nTopper is:", topper[0], "with marks", topper[1])
+grades = set()
+
+for s in students:
+    grades.add(s[2])
+
+print("\nUnique Grades:", grades)
