@@ -1,0 +1,28 @@
+class Vehicle:
+    def __init__(self, name, km):
+        self.name = name
+        self.km = km
+
+    def calculate_rent(self):
+        return self.km * self.rental_rate
+
+
+class Bike(Vehicle):
+    rental_rate = 250
+
+
+class Car(Vehicle):
+    rental_rate = 200
+
+
+class Bus(Vehicle):
+    rental_rate = 150
+
+bike = Bike("Honda Shine", 100)
+car = Car("Swift", 150)
+bus = Bus("Volvo", 250)
+
+print("Bike Rent =", bike.calculate_rent())
+print("Car Rent =", car.calculate_rent())
+print("Bus Rent =", bus.calculate_rent())
+print("Bus Rent =", bus.calculate_rent())
