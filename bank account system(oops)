@@ -1,0 +1,39 @@
+import re
+
+class Account:
+    def __init__(self, acc_no, balance):
+        self.__balance = balance   # Encapsulation
+
+        if re.match("[0-9]{6}", acc_no):
+            self.acc_no = acc_no
+        else:
+            print("Invalid Account Number")
+
+    def show_balance(self):
+        print("Balance =", self.__balance)
+
+    def withdraw(self, amount):
+        self.__balance = self.__balance - amount
+        print("Amount Withdrawn")
+
+
+class SavingAccount(Account):
+    def withdraw(self, amount):    
+        print("Saving Account")
+        super().withdraw(amount)
+
+
+class CurrentAccount(Account):
+    def withdraw(self, amount):    
+        print("Current Account")
+        super().withdraw(amount)
+
+
+acc = SavingAccount("123456", 5000)
+
+acc.show_balance()
+
+amount = int(input("Enter Amount: "))
+acc.withdraw(amount)
+
+acc.show_balance()
