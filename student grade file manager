@@ -1,0 +1,32 @@
+import csv
+
+def grade(marks):
+    if marks >= 90:
+        return "A"
+    elif marks >= 75:
+        return "B"
+    elif marks >= 50:
+        return "C"
+    else:
+        return "Fail"
+
+file = open("students.csv", "r")
+reader = csv.reader(file)
+
+new_file = open("result.csv", "w", newline="")
+writer = csv.writer(new_file)
+
+writer.writerow(["Name", "Marks", "Grade"])
+
+next(reader)  # Skip Header
+
+for row in reader:
+    name = row[0]
+    marks = int(row[1])
+
+    writer.writerow([name, marks, grade(marks)])
+
+file.close()
+new_file.close()
+
+print("Result File Created Successfully!")
