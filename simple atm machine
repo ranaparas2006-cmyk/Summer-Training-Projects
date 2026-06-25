@@ -19,7 +19,7 @@ class Bank:
         print("Current balance:", self.balance)
 
 
-# object create
+
 b = Bank()
 
 while True:
