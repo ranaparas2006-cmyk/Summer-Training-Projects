@@ -1,0 +1,30 @@
+class Student:
+    def __init__(self, name, grade):
+        self.name = name
+        self.grade = grade
+
+    def __str__(self):
+        return self.name + " - " + self.grade
+
+
+class Teacher(Student):   
+    def show(self):       
+        print("Teacher Record")
+
+
+name = input("Enter Student Name: ")
+grade = input("Enter Grade: ")
+
+s = Student(name, grade)
+file = open("student.txt", "a")
+file.write(str(s) + "\n")
+file.close()
+
+print("Record Saved!")
+file = open("student.txt", "r")
+print("\nStudent Records:")
+print(file.read())
+file.close()
+
+t = Teacher("Aman", "A")
+t.show()
