@@ -1,0 +1,45 @@
+def add_expense():
+    try:
+        category = input("Category: ")
+        amount = float(input("Amount: "))
+
+        file = open("expense.txt", "a")
+        file.write(category + " " + str(amount) + "\n")
+        file.close()
+
+        print("Expense Added!")
+
+    except ValueError:
+        print("Invalid Amount!")
+
+def show_expenses():
+    try:
+        file = open("expense.txt", "r")
+
+        print("\nExpenses:")
+        for line in file:
+            print(line.strip())
+
+        file.close()
+
+    except FileNotFoundError:
+        print("No Expense Record Found!")
+
+while True:
+    print("1.Add Expense")
+    print("2.Show Expenses")
+    print("3.Exit")
+
+    choice = input("Enter Choice: ")
+
+    if choice == "1":
+        add_expense()
+
+    elif choice == "2":
+        show_expenses()
+
+    elif choice == "3":
+        break
+
+    else:
+        print("Invalid Choice")
